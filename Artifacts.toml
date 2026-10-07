@@ -1,10 +1,59 @@
 [[ghost_c]]
+arch = "aarch64"
+cxxstring_abi = "cxx11"
+git-tree-sha1 = "0fb80f6974dcdcbe57fbdbf85073b94b25e76de9"
+julia_version = "1.13.1"
+libgfortran_version = "5.0.0"
+os = "macos"
+
+    [[ghost_c.download]]
+    sha256 = "fd5e052eed7a3130f280e245c24e0b487b8ea320dcd07fcbceecbe609721c128"
+    url = "https://github.com/JuliaConstraints/GHOST_jll.jl/releases/download/ghost-cabi-20261007/ghost-macos-15.tar.gz"
+[[ghost_c]]
 arch = "x86_64"
 cxxstring_abi = "cxx11"
-download = []
-git-tree-sha1 = "6974ebb3d43ce422206f7df7a1a04aa968f8fb6a"
+git-tree-sha1 = "6bfc1362243bb2841801c31bee50a2df279bdd6f"
+julia_version = "1.13.1"
+libgfortran_version = "5.0.0"
+os = "macos"
+
+    [[ghost_c.download]]
+    sha256 = "c1b242558f704e2425f79d4f7a452d4c7f435ecd8623b30028ee524767fccaf0"
+    url = "https://github.com/JuliaConstraints/GHOST_jll.jl/releases/download/ghost-cabi-20261007/ghost-macos-15-intel.tar.gz"
+[[ghost_c]]
+arch = "x86_64"
+cxxstring_abi = "cxx11"
+git-tree-sha1 = "1c1bbe7cf87f2c1db89c3b4595a8e1687fec5779"
 julia_version = "1.13.1"
 libc = "glibc"
 libgfortran_version = "5.0.0"
 libstdcxx_version = "3.4.30"
 os = "linux"
+
+    [[ghost_c.download]]
+    sha256 = "ae9e8f7d034dcf334698653e95e764178a2376efc984879a9b8fa8162166b44e"
+    url = "https://github.com/JuliaConstraints/GHOST_jll.jl/releases/download/ghost-cabi-20261007/ghost-ubuntu-22.04.tar.gz"
+[[ghost_c]]
+arch = "aarch64"
+cxxstring_abi = "cxx11"
+git-tree-sha1 = "657b9909e8d94651d727a504dfaf8c26bdc31c09"
+julia_version = "1.13.1"
+libc = "glibc"
+libgfortran_version = "5.0.0"
+libstdcxx_version = "3.4.30"
+os = "linux"
+
+    [[ghost_c.download]]
+    sha256 = "46f9992c7ce617387bee49b02839ead7eea382a31eb59e7785df3c5f0a928cae"
+    url = "https://github.com/JuliaConstraints/GHOST_jll.jl/releases/download/ghost-cabi-20261007/ghost-ubuntu-24.04-arm.tar.gz"
+[[ghost_c]]
+arch = "x86_64"
+cxxstring_abi = "cxx11"
+git-tree-sha1 = "9e9c401395d8a1b09a9fe29570ad2f4c70196811"
+julia_version = "1.13.1"
+libgfortran_version = "5.0.0"
+os = "windows"
+
+    [[ghost_c.download]]
+    sha256 = "39631db83f3c6c0f0f1c3338c97f3889795cecf9682eed8d0854ca88997c8236"
+    url = "https://github.com/JuliaConstraints/GHOST_jll.jl/releases/download/ghost-cabi-20261007/ghost-windows-2022.tar.gz"
