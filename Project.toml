@@ -1,7 +1,7 @@
 name = "GHOST_jll"
 uuid = "8d604a99-d805-502d-a593-62e3c19f5ba4"
 authors = ["Jean-François Baffier"]
-version = "3.5.0+1"
+version = "3.5.0+2"
 
 [deps]
 Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"

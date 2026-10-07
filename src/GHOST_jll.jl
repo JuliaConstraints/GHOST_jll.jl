@@ -7,7 +7,7 @@ const artifacts_toml = joinpath(@__DIR__, "..", "Artifacts.toml")
 const artifact_name = "ghost_c"
 
 "Resolve an existing override or an installed platform artifact; never rebuild it."
-function library_path()
+function library_path(; install=true)
     existing = get(ENV, "GHOST_LIBRARY", "")
     if !isempty(existing)
         isfile(existing) || error("GHOST_LIBRARY does not point to an existing shared library: $existing")
@@ -16,7 +16,10 @@ function library_path()
     hash = artifact_hash(artifact_name, artifacts_toml)
     hash === nothing && error("GHOST's callback ABI has no qualified Artifact for this platform. Supply GHOST_LIBRARY or build the matching Artifact.")
     # The artifact macro installs a declared download only when not already cached.
-    ensure_artifact_installed(artifact_name, artifacts_toml)
+    if !artifact_exists(hash)
+        install || error("The GHOST Artifact is not installed; run the explicit setup first.")
+        ensure_artifact_installed(artifact_name, artifacts_toml)
+    end
     root = artifact_path(hash)
     file = Sys.iswindows() ? joinpath(root, "bin", "ghost_c.dll") :
         joinpath(root, "lib", "libghost_c." * Libdl.dlext)
