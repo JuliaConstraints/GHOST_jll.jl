@@ -1,2 +1,10 @@
-# Entries are added only after the native library passes qualification on the
-# matching platform. No hashes or download URLs are guessed for other targets.
+[[ghost_c]]
+arch = "x86_64"
+cxxstring_abi = "cxx11"
+download = []
+git-tree-sha1 = "6974ebb3d43ce422206f7df7a1a04aa968f8fb6a"
+julia_version = "1.13.1"
+libc = "glibc"
+libgfortran_version = "5.0.0"
+libstdcxx_version = "3.4.30"
+os = "linux"

@@ -1,0 +1,39 @@
+name: Native callback ABI artifacts
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04-arm, macos-15, macos-15-intel, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    env:
+      JULIA_NUM_THREADS: '1'
+      JULIA_NUM_GC_THREADS: '1'
+      JULIA_NUM_PRECOMPILE_TASKS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Azzaare/GHOST
+          ref: 74a147eaebbf50ce264286e7079ee81ff0d9bd57
+          fetch-depth: 0
+          path: native
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.13.1'
+      - name: Compile, test, package corresponding source
+        shell: bash
+        run: julia --startup-file=no --threads=1 --gcthreads=1 gen/build_artifact.jl native 74a147eaebbf50ce264286e7079ee81ff0d9bd57 "ghost-${{ matrix.os }}.tar.gz"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ghost-${{ matrix.os }}
+          path: |
+            ghost-*.tar.gz
+            Artifacts.toml
+          if-no-files-found: error
