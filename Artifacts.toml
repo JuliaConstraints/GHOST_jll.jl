@@ -1,0 +1,2 @@
+# Entries are added only after the native library passes qualification on the
+# matching platform. No hashes or download URLs are guessed for other targets.
